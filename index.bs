@@ -429,7 +429,7 @@ platform UI or media keys, thereby improving the user experience.
       </li>
       <li>
         <dfn enum-value for=MediaSessionAction>enterfullscreen</dfn>:
-        the action's intent is to open the media session in full screen.
+        the action's intent is to open the media session in fullscreen.
       </li>
       <li>
         <dfn enum-value for=MediaSessionAction>voiceactivity</dfn>: the
