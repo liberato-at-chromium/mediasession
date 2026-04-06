@@ -82,9 +82,9 @@ platform UI or media keys, thereby improving the user experience.
 
   <p>
     The API introduced in this specification has very low impact with regards to
-    privacy. Part of the API allows a website to receive
-    commands from the user via buttons or other form of controls which might
-    sometimes introduce a new input layer between the user and the website.
+    privacy. Part of the API allows a website to receive commands from the user
+    via buttons or other form of controls which might sometimes introduce a new
+    input layer between the user and the website.
   </p>
 
   <section>
@@ -122,9 +122,9 @@ platform UI or media keys, thereby improving the user experience.
 
   <p>
     The API introduced in this specification has very low impact with regards to
-    security. Part of the API allows a website to expose metadata
-    that can be used by the user agent. The user agent obviously needs to use
-    this data with care.
+    security. Part of the API allows a website to expose metadata that can be
+    used by the user agent. The user agent obviously needs to use this data with
+    care.
   </p>
 
   <section>
@@ -154,8 +154,8 @@ platform UI or media keys, thereby improving the user experience.
     </p>
 
     <p>
-      In general, all security considerations related to the display
-      of notifications from a website should apply here. It is worth noting that
+      In general, all security considerations related to the display of
+      notifications from a website should apply here. It is worth noting that
       the {{MediaMetadata}} offer less customization than regular web
       notifications, thus would be harder to spoof.
     </p>
@@ -293,23 +293,23 @@ platform UI or media keys, thereby improving the user experience.
         <dfn>preferred artwork image</dfn> from <var>metadata</var>'s
         {{MediaMetadata/artwork}} of the <a>active media session</a>.
       </li>
-      <li>Let <var>request</var> be a new [=request=] whose [=request/URL=] is the
-        <a>preferred artwork image</a>'s {{MediaImage/src}}, [=request/destination=]
-        is "image", [=request/mode=] is "no-cors", [=request/credentials mode=] is "include",
-        and whose [=request/use-URL-credentials flag=] is set.
-      </li>
+      <li>Let <var>request</var> be a new [=request=] whose [=request/URL=] is
+      the <a>preferred artwork image</a>'s {{MediaImage/src}},
+      [=request/destination=] is "image", [=request/mode=] is "no-cors",
+      [=request/credentials mode=] is "include", and whose
+      [=request/use-URL-credentials flag=] is set. </li>
       <li>
-        [=Fetch=] <var>request</var> with  the following steps executed
-        as the fetch's [=processResponse=] algorithm.
+        [=Fetch=] <var>request</var> with the following steps executed as the
+        fetch's [=processResponse=] algorithm.
         <ol>
-	  <li>
+          <li>
             Let <var>response</var> be the [=response=] given to the fetch's
             [=processResponse=] algorithm.
           </li>
           <li>
             If <var>response</var>'s [=response/type=] is not
-            {{ResponseType/"error"}}, attempt to decode <var>response</var>'s [=body=] as an
-            image.
+            {{ResponseType/"error"}}, attempt to decode <var>response</var>'s
+            [=body=] as an image.
           </li>
           <li>
             If the image format is supported, use the image as the artwork for
@@ -360,25 +360,24 @@ platform UI or media keys, thereby improving the user experience.
         is to resume the playback.
       </li>
       <li>
-        <dfn enum-value for=MediaSessionAction>pause</dfn>: the action's
-        intent is to pause the currently active playback.
+        <dfn enum-value for=MediaSessionAction>pause</dfn>: the action's intent
+        is to pause the currently active playback.
       </li>
       <li>
-        <dfn enum-value for=MediaSessionAction>seekbackward</dfn>: the
-        action's intent is to move the playback time backward by a short
-        period (eg. a few seconds).
-      </li>
-      <li>
-        <dfn enum-value for=MediaSessionAction>seekforward</dfn>: the action's
-        intent is to move the playback time forward by a short period (eg. a
+        <dfn enum-value for=MediaSessionAction>seekbackward</dfn>: the action's
+        intent is to move the playback time backward by a short period (eg. a
         few seconds).
       </li>
       <li>
-        <dfn enum-value for=MediaSessionAction>previoustrack</dfn>: the
-        action's intent is to either start the current playback from the
-        beginning if the playback has a notion of beginning, or move to the
-        previous item in the playlist if the playback has a notion of
-        playlist.
+        <dfn enum-value for=MediaSessionAction>seekforward</dfn>: the action's
+        intent is to move the playback time forward by a short period (eg. a few
+        seconds).
+      </li>
+      <li>
+        <dfn enum-value for=MediaSessionAction>previoustrack</dfn>: the action's
+        intent is to either start the current playback from the beginning if the
+        playback has a notion of beginning, or move to the previous item in the
+        playlist if the playback has a notion of playlist.
       </li>
       <li>
         <dfn enum-value for=MediaSessionAction>nexttrack</dfn>: the action's
@@ -386,51 +385,54 @@ platform UI or media keys, thereby improving the user experience.
         the playback has a notion of playlist.
       </li>
       <li>
-        <dfn enum-value for=MediaSessionAction>skipad</dfn>: the action's
-        intent is to skip the advertisement that is currently playing.
+        <dfn enum-value for=MediaSessionAction>skipad</dfn>: the action's intent
+        is to skip the advertisement that is currently playing.
       </li>
       <li>
         <dfn enum-value for=MediaSessionAction>stop</dfn>: the action's intent
         is to stop the playback and clear the state if appropriate.
       </li>
       <li>
-        <dfn enum-value for=MediaSessionAction>seekto</dfn>: the action's
-        intent is to move the playback time to a specific time.
+        <dfn enum-value for=MediaSessionAction>seekto</dfn>: the action's intent
+        is to move the playback time to a specific time.
       </li>
       <li>
         <dfn enum-value for=MediaSessionAction>togglemicrophone</dfn>: the
         action's intent is to mute or unmute the user's microphone.
       </li>
       <li>
-        <dfn enum-value for=MediaSessionAction>togglecamera</dfn>: the
-        action's intent is to turn the user's active camera on or off.
+        <dfn enum-value for=MediaSessionAction>togglecamera</dfn>: the action's
+        intent is to turn the user's active camera on or off.
       </li>
       <li>
         <dfn enum-value for=MediaSessionAction>togglescreenshare</dfn>: the
         action's intent is to turn the user's active screenshare on or off.
       </li>
       <li>
-        <dfn enum-value for=MediaSessionAction>hangup</dfn>: the action's
-        intent is to end a call.
+        <dfn enum-value for=MediaSessionAction>hangup</dfn>: the action's intent
+        is to end a call.
       </li>
       <li>
-        <dfn enum-value for=MediaSessionAction>previousslide</dfn>: the
-        action's intent is to go back to the previous slide when presenting
-        slides.
+        <dfn enum-value for=MediaSessionAction>previousslide</dfn>: the action's
+        intent is to go back to the previous slide when presenting slides.
       </li>
       <li>
         <dfn enum-value for=MediaSessionAction>nextslide</dfn>: the action's
         intent is to go to the next slide when presenting slides.
       </li>
       <li>
-        <dfn enum-value for=MediaSessionAction>enterpictureinpicture</dfn>:
-        the action's intent is to open the media session in a
-        picture-in-picture window.
+        <dfn enum-value for=MediaSessionAction>enterpictureinpicture</dfn>: the
+        action's intent is to open the media session in a picture-in-picture
+        window.
       </li>
       <li>
-        <dfn enum-value for=MediaSessionAction>voiceactivity</dfn>: the
-        action's intent is to notify the web page that voice activity has been
-        detected by the microphone.
+        <dfn enum-value for=MediaSessionAction>enterfullscreen</dfn>: the
+        action's intent is to open the media session in fullscreen.
+      </li>
+      <li>
+        <dfn enum-value for=MediaSessionAction>voiceactivity</dfn>: the action's
+        intent is to notify the web page that voice activity has been detected
+        by the microphone.
       </li>
     </ul>
 
@@ -448,8 +450,8 @@ platform UI or media keys, thereby improving the user experience.
     <ol>
       <li>
         If <var>handler</var> is `null`, remove <var>action</var>
-        from the <a>supported media session actions</a> for {{MediaSession}}
-        and abort these steps.
+        from the <a>supported media session actions</a> for {{MediaSession}} and
+        abort these steps.
       </li>
       <li>
         Add <var>action</var> to the <a>supported media session actions</a>
@@ -490,8 +492,8 @@ platform UI or media keys, thereby improving the user experience.
         <a>supported media session actions</a>.
       </li>
       <li>
-        If <var>actions</var> does not contain the key <var>action</var>,
-        abort these steps.
+        If <var>actions</var> does not contain the key <var>action</var>, abort
+        these steps.
       </li>
       <li>
         Let <var>handler</var> be the {{MediaSessionActionHandler}} associated
@@ -629,17 +631,15 @@ platform UI or media keys, thereby improving the user experience.
                 actions</var>.
               </li>
               <li>
-                Otherwise, remove <a enum-value
-                for=MediaSessionAction>pause</a> from <var>available
-                actions</var>.
+                Otherwise, remove <a enum-value for=MediaSessionAction>pause</a>
+                from <var>available actions</var>.
               </li>
             </ol>
           </li>
           <li>
-            If the <var>source</var> is a UI element created by the user
-            agent, it MAY remove some elements from <var>available
-            actions</var> if there are too many of them compared to the
-            available space.
+            If the <var>source</var> is a UI element created by the user agent,
+            it MAY remove some elements from <var>available actions</var> if
+            there are too many of them compared to the available space.
           </li>
           <li>
             Notify the <var>source</var> with the updated list of
@@ -668,9 +668,8 @@ platform UI or media keys, thereby improving the user experience.
         The <dfn>playback rate</dfn> of the media. It is a coefficient.
       </li>
       <li>
-        The <dfn>last reported playback position</dfn> of the media. This is
-        the playback position of the media in seconds when the <a>position
-        state</a>
+        The <dfn>last reported playback position</dfn> of the media. This is the
+        playback position of the media in seconds when the <a>position state</a>
         was created.
       </li>
     </ul>
@@ -764,6 +763,7 @@ enum MediaSessionAction {
   "previousslide",
   "nextslide",
   "enterpictureinpicture",
+  "enterfullscreen",
   "voiceactivity"
 };
 
@@ -887,8 +887,7 @@ interface MediaSession {
 
 <ul>
   <li>
-    If <var>state</var> is an empty dictionary, clear the <a>position
-    state</a>
+    If <var>state</var> is an empty dictionary, clear the <a>position state</a>
     and abort these steps.
   </li>
   <li>
@@ -900,8 +899,8 @@ interface MediaSession {
     <code>NaN</code>, throw a <a exception>TypeError</a>.
   </li>
   <li>
-    If <var>state</var>'s {{MediaPositionState/position}} is not present, set
-    it to zero.
+    If <var>state</var>'s {{MediaPositionState/position}} is not present, set it
+    to zero.
   </li>
   <li>
     If <var>state</var>'s <a dict-member for="MediaPositionState">position</a>
@@ -986,8 +985,8 @@ interface MediaSession {
 </p>
 <ol>
   <li>
-    If <var>document</var> is not [=fully active=], return [=a promise
-    rejected with=] <a exception>InvalidStateError</a>.
+    If <var>document</var> is not [=fully active=], return [=a promise rejected
+    with=] <a exception>InvalidStateError</a>.
   </li>
   <li>
     If <var>active</var> is <code>true</code> and <var>document</var>'s
@@ -1017,7 +1016,8 @@ interface MediaSession {
             and <code>true</code> otherwise.
           </li>
           <li>
-            If <var>active</var> is <var>currentlyActive</var>, <a>queue a task</a>
+            If <var>active</var> is <var>currentlyActive</var>, <a>queue a
+            task</a>
             using the [=user interaction task source=] to resolve
             <var>p</var> with <code>undefined</code> and abort these steps.
           </li>
@@ -1039,8 +1039,8 @@ interface MediaSession {
         and <var>active</var>.
       </li>
       <li>
-         <a>Queue a task</a> using the [=user interaction task source=]
-         to resolve <var>p</var> with <code>undefined</code>.
+        <a>Queue a task</a> using the [=user interaction task source=] to
+        resolve <var>p</var> with <code>undefined</code>.
       </li>
       <li>
         If <var>applyPausePolicy</var> is <code>true</code>, run the following
@@ -1053,8 +1053,8 @@ interface MediaSession {
           <li>
             For each {{MediaStreamTrack}} whose source is of type
             <var>captureKind</var>,
-            <a>queue a task</a> using the [=user interaction task source=]
-            to [$set a track's muted state$] to <var>newMutedState</var>.
+            <a>queue a task</a> using the [=user interaction task source=] to
+            [$set a track's muted state$] to <var>newMutedState</var>.
           </li>
         </ol>
       </li>
@@ -1191,9 +1191,9 @@ dictionary MediaMetadataInit {
 </ol>
 
 <p>
-When the <dfn>convert artwork algorithm</dfn> with <var>input</var> parameter is
-invoked, where the <var>input</var> is a sequence of type {{MediaImage}}, the
-user agent MUST run the following steps:
+  When the <dfn>convert artwork algorithm</dfn> with <var>input</var> parameter
+  is invoked, where the <var>input</var> is a sequence of type {{MediaImage}},
+  the user agent MUST run the following steps:
 </p>
 <ol>
   <li>
@@ -1277,8 +1277,8 @@ user agent MUST run the following steps:
           </li>
           <li>
             Perform <a href="https://tc39.es/ecma262/#sec-setintegritylevel">
-            SetIntegrityLevel</a>(<var>image</var>, "<code>frozen</code>"),
-            to prevent accidental mutation by scripts.
+            SetIntegrityLevel</a>(<var>image</var>, "<code>frozen</code>"), to
+            prevent accidental mutation by scripts.
           </li>
           <li>
             Push <var>image</var> to <var>frozenArtwork</var>.
@@ -1310,8 +1310,8 @@ user agent MUST run the following steps:
   </li>
   <li>
     Run <a>convert artwork algorithm</a> with <var>convertedArtwork</var>, and
-    set the {{MediaMetadata}}'s <a for="MediaMetadata">artwork images</a> as
-    the result if it succeeds.
+    set the {{MediaMetadata}}'s <a for="MediaMetadata">artwork images</a> as the
+    result if it succeeds.
   </li>
   <li>
     Set the {{MediaMetadata}}'s <a>converted artwork images</a> to
@@ -1338,8 +1338,7 @@ user agent MUST run the following steps:
         session</a>, abort these steps.
       </li>
       <li>
-        Otherwise, <a>in parallel</a>, run the <a>update metadata
-        algorithm</a>.
+        Otherwise, <a>in parallel</a>, run the <a>update metadata algorithm</a>.
       </li>
     </ol>
   </li>
@@ -1412,15 +1411,15 @@ dictionary ChapterInformationInit {
     {{ChapterInformation/artwork}} as <var>input</var>.
   </li>
   <li>
-    Set <var>chapterInfo</var>'s <a for="ChapterInformation">artwork
-    images</a> to the result of [=Create a frozen array|creating a frozen
-    array=] from {{ChapterInformationInit/artwork}}.
+    Set <var>chapterInfo</var>'s <a for="ChapterInformation">artwork images</a>
+    to the result of [=Create a frozen array|creating a frozen array=] from
+    {{ChapterInformationInit/artwork}}.
   </li>
   <li>
     Return <var>chapterInfo</var>.
   </li>
 </ol>
-  
+
 <p>
   The <dfn attribute for="ChapterInformation">title</dfn> attribute reflects the
   {{ChapterInformation}}'s <a for=ChapterInformation>title</a>. On getting, it
@@ -1572,22 +1571,31 @@ of [=pausing all input sources=] and the <a>media session action</a>
 is {{MediaSessionAction/togglecamera}}, {{MediaSessionAction/togglemicrophone}}
 or {{MediaSessionAction/togglescreenshare}}.
 
-When the <a>media session action</a> is {{MediaSessionAction/enterpictureinpicture}},
-the <dfn dict-member for="MediaSessionActionDetails">enterPictureInPictureReason</dfn>
-<a>dictionary member</a> MUST be provided and is the reason the UA has triggered this
-action.
+When the <a>media session action</a> is
+{{MediaSessionAction/enterpictureinpicture}}, the <dfn dict-member
+for="MediaSessionActionDetails">enterPictureInPictureReason</dfn>
+<a>dictionary member</a> MUST be provided and is the reason the UA has triggered
+this action.
 
 {{enterPictureInPictureReason}} can have one of the following values:
 <ul>
   <li>
-    <dfn enum-value for="MediaSessionEnterPictureInPictureReason">other</dfn>: the reason for entering picture-in-picture is not one of the existing enum values
+    <dfn enum-value for="MediaSessionEnterPictureInPictureReason">other</dfn>:
+    the reason for entering picture-in-picture is not one of the existing enum
+    values
   </li>
   <li>
-    <dfn enum-value for="MediaSessionEnterPictureInPictureReason">useraction</dfn>: the user has taken an explicit action to enter picture-in-picture (e.g. clicking a picture-in-picture button in the user agent UI)
+    <dfn enum-value
+    for="MediaSessionEnterPictureInPictureReason">useraction</dfn>: the user has
+    taken an explicit action to enter picture-in-picture (e.g. clicking a
+    picture-in-picture button in the user agent UI)
   </li>
   <li>
-    <dfn enum-value for="MediaSessionEnterPictureInPictureReason">contentoccluded</dfn>: the user agent is requesting picture-in-picture because the page has become occluded.
-    This can happen in various cases like tab switching or tab minimization.
+    <dfn enum-value
+    for="MediaSessionEnterPictureInPictureReason">contentoccluded</dfn>: the
+    user agent is requesting picture-in-picture because the page has become
+    occluded. This can happen in various cases like tab switching or tab
+    minimization.
   </li>
 </ul>
 
@@ -1872,6 +1880,15 @@ media session</a>.
   <pre class="lang-javascript">
     navigator.mediaSession.setActionHandler("enterpictureinpicture", function() {
       remoteVideo.requestPictureInPicture();
+    });
+  </pre>
+</div>
+
+<div class="example" id="example-enterfullscreen">
+  Handling enter fullscreen:
+  <pre class="lang-javascript">
+    navigator.mediaSession.setActionHandler("enterfullscreen", function() {
+      remoteVideo.requestFullscreen();
     });
   </pre>
 </div>
