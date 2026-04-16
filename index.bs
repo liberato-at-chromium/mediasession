@@ -1876,7 +1876,7 @@ media session</a>.
   Handling picture-in-picture:
   <pre class="lang-javascript">
     navigator.mediaSession.setActionHandler("enterpictureinpicture", function() {
-      remoteVideo.requestPictureInPicture();
+      video.requestPictureInPicture();
     });
   </pre>
 </div>
@@ -1885,7 +1885,7 @@ media session</a>.
   Handling enter fullscreen:
   <pre class="lang-javascript">
     navigator.mediaSession.setActionHandler("enterfullscreen", function() {
-      remoteVideo.requestFullscreen();
+      video.requestFullscreen();
     });
   </pre>
 </div>
